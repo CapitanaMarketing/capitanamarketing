@@ -478,6 +478,68 @@
         </div>
       </section>
 
+<!-- Sección Carrusel Infinito (sin flechas) -->
+<section class="py-10 bg-transparent overflow-hidden">
+  <div class="container mx-auto px-4">
+    <!-- Contenedor que oculta el desborde -->
+    <div class="relative overflow-hidden">
+      
+      <!-- Pista deslizante (se duplican las imágenes para efecto infinito) -->
+      <div class="carrusel-infinito flex gap-6">
+        <!-- Primera copia de imágenes (01 a 06) -->
+        <div class="flex gap-6">
+          <img src="images/1x/01.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/02.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/03.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/04.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/05.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/06.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+        </div>
+        <!-- Segunda copia (para continuidad infinita) -->
+        <div class="flex gap-6">
+          <img src="images/1x/01.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/02.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/03.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/04.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/05.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+          <img src="images/1x/06.png" alt="" class="w-[184px] h-[148px] object-cover flex-shrink-0">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animación infinita */
+  .carrusel-infinito {
+    animation: deslizar 30s linear infinite;
+    width: max-content;
+  }
+
+  @keyframes deslizar {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Desplaza exactamente el ancho de un bloque de 6 imágenes (184*6 + gap*6) */
+      transform: translateX(calc(-100% / 2));
+    }
+  }
+
+  /* Pausa al hover (opcional) */
+  .carrusel-infinito:hover {
+    animation-play-state: paused;
+  }
+
+  /* Ajuste responsive: reduce la velocidad en móvil si se desea */
+  @media (max-width: 768px) {
+    .carrusel-infinito {
+      animation-duration: 15s; /* más rápido en móvil */
+    }
+  }
+</style>
+
       <!--TESTIMONIOS-->
 <section id="testimonios" class="py-12 lg:py-24 overflow-hidden" x-data="{ activeSlide: 1, slideCount: 4 }">
   <div class="container mx-auto px-4">
