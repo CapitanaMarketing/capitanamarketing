@@ -1596,12 +1596,12 @@ video {
     }
 
     .lg\:py-24 {
-        padding-top: 6rem
+        padding-top: 3rem
     }
 
     .lg\:pb-24,
     .lg\:py-24 {
-        padding-bottom: 1rem
+        padding-bottom: 3rem
     }
 
     .lg\:pb-52 {
@@ -1712,4 +1712,10 @@ video {
     font-size: 40px;
     color: white;
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+@media (min-width: 768px) {
+  .md-flex-row {
+    flex-direction: row !important;
+  }
 }

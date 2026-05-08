@@ -46,6 +46,7 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXX');
   </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body>
   <body class="antialiased bg-body text-body font-body">
@@ -226,18 +227,96 @@
           </div>
         </div>
       </section>
-      <section class="py-12 lg:pt-16 lg:pb-24 overflow-hidden">
-        <div class="container mx-auto px-4">
-          <div class="flex flex-wrap items-center -mx-4 mb-16">
-            <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-              <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl tracking-sm mb-6">Sabemos</h1>
-              <p class="text-lg text-gray-700">que no hay dos organizaciones iguales, pero también que no se puede empezar de cero cada vez. Estructuramos nuestra metodología en cuatro niveles de profundidad, diseñados para acompañar distintos momentos de madurez institucional. Desde entender dónde estás parado hasta dirigir tu departamento de marketing. Cada etapa es autónoma, pero a la vez pueden articularse como parte de un mismo proceso estratégico.</p>
-            </div>
-            <div class="w-full lg:w-1/2 px-4"><img class="block" src="fauna-assets/career/team-members-photos.png" alt=""/></div>
-          </div>
-      </section>
+      <!--SECCION CARGOS Y ROLES-->
+  <!-- Sección Sabemos con ID único y CSS personalizado -->
+<section id="sabemos-capitana" class="py-12 lg:py-24 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <!-- Texto centrado con ancho máximo 900px -->
+    <div class="mx-auto text-center mb-16" style="max-width: 900px;">
+      <h2 class="font-heading text-4xl sm:text-6xl md:text-7xl tracking-sm mb-6">Sabemos</h2>
+      <p class="text-lg text-gray-700">que no hay dos organizaciones iguales, pero también que no se puede empezar de cero cada vez. Estructuramos nuestra metodología en cuatro niveles de profundidad, diseñados para acompañar distintos momentos de madurez institucional. Desde entender dónde estás parado hasta dirigir tu departamento de marketing. Cada etapa es autónoma, pero a la vez pueden articularse como parte de un mismo proceso estratégico.</p>
+    </div>
 
-                          <!--PREFOOTER-->
+    <!-- Contenedor grid con Alpine -->
+    <div class="sabemos-grid" x-data="{ openBelen: false, openFacu: false }">
+      
+      <!-- Tarjeta Belén -->
+      <div class="sabemos-card">
+        <img src="images/belen.jpeg" alt="María Belén Paniagua" class="w-full aspect-square object-cover">
+        <div class="p-8">
+          <h3 class="text-xl font-bold">María Belén Paniagua</h3>
+          <p class="text-gray-600 mb-3">Especialista en Marketing y Comunicación</p>
+          <button @click="openBelen = !openBelen" class="inline-flex items-center gap-1 text-lime-600 hover:text-lime-700 font-medium">
+            <span x-text="openBelen ? '−' : '+'"></span> <span>Ver más</span>
+          </button>
+          <div x-show="openBelen" class="mt-4 text-gray-700 space-y-2">
+            <p>Licenciada en Periodismo (UNDAV) con Maestría en Dirección Comercial (UADE, en curso) y formación de posgrado en Marketing y Comunicación en la Universidad de San Andrés. Cuenta con más de ocho años de experiencia en roles de liderazgo en comunicación corporativa, branding y estrategia de contenidos, tanto en entornos B2B como B2C.</p>
+            <p>Trabajó como Marketing & Communications Manager en Bechsud, donde lideró el rebranding de la marca en Argentina y su lanzamiento en Brasil, gestionando equipos en siete países de Latinoamérica. Actualmente desarrolla consultoría de marketing y comunicación para empresas en Argentina, Colombia, Paraguay, Uruguay y Estados Unidos, y es docente universitaria en la Universidad Nacional de Avellaneda y la Universidad Nacional de Lanús.</p>
+            <p class="font-medium">Áreas de especialización: estrategia de comunicación, identidad de marca, comunicación interna, gestión de equipos y campañas integrales.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Facundo -->
+      <div class="sabemos-card">
+        <img src="images/facu.jpeg" alt="Facundo Suárez" class="w-full aspect-square object-cover">
+        <div class="p-8">
+          <h3 class="text-xl font-bold">Facundo Suárez</h3>
+          <p class="text-gray-600 mb-3">Estratega Digital y de Comunicación</p>
+          <button @click="openFacu = !openFacu" class="inline-flex items-center gap-1 text-lime-600 hover:text-lime-700 font-medium">
+            <span x-text="openFacu ? '−' : '+'"></span> <span>Ver más</span>
+          </button>
+          <div x-show="openFacu" class="mt-4 text-gray-700 space-y-2">
+            <p>Licenciado en Comunicación Social (UNLP) con Maestría en Marketing y Comunicación en la Universidad de San Andrés (2024) y Posgrado en Comunicación Digital (UNLP). Tiene más de 15 años de experiencia liderando proyectos de estrategia digital, contenidos y medios en organizaciones públicas y privadas de alto impacto.</p>
+            <p>Desarrolló su carrera en Radio y Televisión Argentina, el Ministerio de Salud de la Nación y el ámbito legislativo nacional, donde combinó estrategia de contenidos, pauta digital y comunicación institucional. Actualmente se desempeña como consultor en estrategia digital y comunicación, con foco en branding, campañas 360° y optimización de medios orientada a resultados.</p>
+            <p class="font-medium">Áreas de especialización: estrategia digital, social listening, brand content, planificación de medios y análisis de datos.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos exclusivos para la sección #sabemos-capitana */
+  #sabemos-capitana .sabemos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    #sabemos-capitana .sabemos-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 56rem;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 3rem;
+      align-items: start;
+    }
+  }
+
+  #sabemos-capitana .sabemos-card {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  #sabemos-capitana .sabemos-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  #sabemos-capitana .sabemos-card img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+</style>
+        <!--PREFOOTER-->
                                     <section> 
                                       <div class="p-4">
                                         <div class="max-w-xl lg:max-w-5xl mx-auto xl:max-w-none px-5 md:px-12 xl:px-24 py-16 bg-bordeaux rounded-2xl">
@@ -326,6 +405,5 @@
      <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.1 13.9 10.9-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
    </svg>
 </a>
-
   </body>
 </html>
